@@ -1,5 +1,4 @@
-﻿
-using CarRental.Entities.Models;
+﻿using CarRental.Entities.Models;
 using CarRental.Entities.Repo_interfaces;
 using CarRental.Entities.Service_Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -30,9 +29,7 @@ namespace CarRental.Web.Areas.Customer.Controllers
         [HttpGet]
         public async Task<IActionResult> RentInAction(int id)
         {
-            var car = await _carRepo.GetByIdAsync(id);
-
-            int quantity= await _carService.DecreaseQuantityAsnc(car);
+            var quantity = await _carService.RentCar(id);
 
             if (quantity >= 0)
             {

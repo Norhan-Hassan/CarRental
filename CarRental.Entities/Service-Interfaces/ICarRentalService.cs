@@ -11,5 +11,6 @@ namespace CarRental.Entities.Service_Interfaces
     {
         Task UpdatePriceAsync(Car car);
         Task<int> DecreaseQuantityAsnc(Car car);
+        Task<int> RentCar(int id);
     }
 }
