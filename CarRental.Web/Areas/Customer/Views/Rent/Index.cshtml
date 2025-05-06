@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Car>
+
+<link rel="stylesheet" href="~/css/site.css" />
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            @if (Model == null || !Model.Any())
+            {
+                <partial name="_NotFoundPartial"></partial>
+            }
+            else{
+                @foreach (var car in Model)
+                {
+                    <div class="col mb-5">
+                        <div class="card h-100">
+
+                            <div class="card-body p-4 bg-info bg-opacity-25">
+                                <div class="text-center">
+                                    <h5 class="fw-bolder">@car.Brand</h5>
+                                    $ @car.Price
+                                    <div>
+                                        Quantity: @car.Quantity
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex justify-content-center align-items-center">
+                              
+                                <span class="mx-2">
+                                    <a  class="btn btn-primary" asp-action="RentInAction" asp-controller="Rent" asp-area="Customer" asp-route-id="@car.ID">
+                                        Rent
+                                    </a>
+                                </span>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                }
+            }
+           
+        </div>
+    </div>
+    
+ </section>

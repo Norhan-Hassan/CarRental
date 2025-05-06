@@ -1,0 +1,40 @@
+﻿@model Car
+
+<div class="card mx-auto mt-5" style="max-width: 500px;">
+    <div class="card-header bg-light text-dark">
+        <h5 class="mb-0">Add New Car</h5>
+    </div>
+    <div class="card-body">
+        <input type="hidden" asp-for="ID">
+        <form method="post" asp-action="EditInAction">
+
+            <div class="mb-3">
+                <label asp-for="Brand" class="form-label"></label>
+                <input type="text" asp-for="Brand" class="form-control" readonly>
+                <span asp-validation-for="Brand" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Price" class="form-label"></label>
+                <input id="textArea" asp-for="Price" class="form-control">
+                <span asp-validation-for="Price" class="text  text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Quantity" class="form-label"></label>
+                <input id="textArea" asp-for="Quantity" class="form-control" readonly />
+                <span asp-validation-for="Quantity" class="text  text-danger"></span>
+            </div>
+
+
+            <div class="text-end">
+                <button type="submit" class="btn btn-success" asp-action="EditInAction" asp-controller="Car" asp-route-id="@Model.ID">Set Price</button>
+                <a class="btn btn-secondary" asp-action="Index" asp-controller="Car" class="btn btn-secondary">Back To List</a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CarViewModel>
+
+<br />
+<div class="d-flex justify-content-start mb-3">
+    <a class="btn btn-secondary" asp-action="Create" asp-controller="Car" asp-area="Admin" >Add New Car</a>
+</div>
+<br />
+
+<div class="card mx-auto" style="background-color: #f8f9fa; border-color: #ccc;">
+    @if (Model == null || !Model.Any())
+    {
+        <partial name="_NotFoundPartial"></partial>
+    }
+    <table class="table table-striped table-hover table-bordered mb-0">
+        <thead class="bg-secondary text-white">
+            <tr>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var car in Model)
+            {
+                <tr>
+                    <td>@car.Brand</td>
+                    <td>@car.Price</td>
+                    <td>@car.Quantity</td>
+                    <td class="text-center">
+                        <a class="btn btn-sm btn-outline-secondary me-2" asp-action="Edit" asp-controller="Car" asp-route-id="@car.Id">
+                            <i class="fas fa-edit"></i> Set Price
+                        </a>
+                       
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
