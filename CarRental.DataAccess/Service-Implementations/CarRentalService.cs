@@ -44,6 +44,7 @@ namespace CarRental.DataAccess.Service_Implementations
         {
             var car = await _carRepo.GetByIdAsync(id);
             int quantity = await DecreaseQuantityAsnc(car);
+
             return quantity;
         }
     }

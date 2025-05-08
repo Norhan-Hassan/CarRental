@@ -28,12 +28,12 @@ namespace CarRental.DataAccess.Extensions
             services.AddTransient<ICarRentalService, CarRentalService>();
             return services;
         }
-        public static async Task SeedRolesAsync(this IApplicationBuilder app)
+        public static async Task SeedRolesMangerAsync(this IApplicationBuilder app)
         {
             using var scope = app.ApplicationServices.CreateScope();
             var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
-            await SeedData.SeedRoles(roleManager);
+            await SeedRoles.SeedRolesAsync(roleManager);
         }
     }
 }

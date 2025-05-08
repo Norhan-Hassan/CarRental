@@ -47,7 +47,7 @@ namespace CarRental.Web.Areas.Identity.Controllers
                     }
                     else if(role == Roles.AdminRole)
                     {
-                        await userManager.AddToRoleAsync(user, role);
+                        await userManager.AddToRoleAsync(user, Roles.AdminRole);
                         return RedirectToAction("Index", "Car", new { area = "Admin" });
                     }
                   

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace CarRental.DataAccess
 {
-    public static class SeedData
+    public static class SeedRoles
     {
-        public static async Task SeedRoles(RoleManager<IdentityRole> roleManager)
+        public static async Task SeedRolesAsync(RoleManager<IdentityRole> roleManager)
         {
             if (!await roleManager.RoleExistsAsync(Roles.CustomerRole))
                 await roleManager.CreateAsync(new IdentityRole(Roles.CustomerRole));

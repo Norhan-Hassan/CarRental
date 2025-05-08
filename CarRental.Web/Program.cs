@@ -25,9 +25,7 @@ namespace CarRental.Web
 
             var app = builder.Build();
 
-            #region SeedRoles
-            await app.SeedRolesAsync();
-            #endregion
+            
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -45,6 +43,10 @@ namespace CarRental.Web
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            #region SeedRoles
+            await app.SeedRolesMangerAsync();
+            #endregion
 
             app.MapControllerRoute(
                name: "Identity",

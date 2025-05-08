@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace CarRental.Web.Areas.Admin.Controllers
 {
     [Area(Roles.AdminRole)]
-    [Authorize(Roles = Roles.AdminRole)]
+    //[Authorize(Roles = Roles.AdminRole)]
     public class CarController : Controller
     {
         private readonly ICarRepo _carRepo;
@@ -84,7 +84,7 @@ namespace CarRental.Web.Areas.Admin.Controllers
             {
                 await _carService.UpdatePriceAsync(car);
 
-                await _carRepo.SaveChangesAsync();
+                //await _carRepo.SaveChangesAsync();
 
                 int changes = await _carRepo.SaveChangesAsync();
                 if (changes > 0)

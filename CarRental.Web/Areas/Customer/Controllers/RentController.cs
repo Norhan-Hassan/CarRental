@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace CarRental.Web.Areas.Customer.Controllers
 {
     [Area(Roles.CustomerRole)]
-    [Authorize(Roles= Roles.CustomerRole)]
+    //[Authorize(Roles= Roles.CustomerRole)]
     public class RentController : Controller
     {
         private readonly ICarRepo _carRepo;
